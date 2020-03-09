@@ -1,4 +1,8 @@
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.util.CoreMap;
 
 import java.io.*;
 import java.util.*;
@@ -59,9 +63,13 @@ public class Utility {
      * @param documentSimilarities, the hashtable returned by getDocumentSimilarities
      * @return listOfEntries
      */
-    public static List<Entry<String, Double>> rankDimilarDocuments(Hashtable<String, Double> documentSimilarities) {
-        List<Entry<String, Double>> listOfEntries = null;
-
+    public static List<Entry<String, Double>> rankSimilarDocuments(Hashtable<String, Double> documentSimilarities) {
+        List<Entry<String, Double>> listOfEntries = new ArrayList<>();
+        //TO DO - done
+        documentSimilarities.entrySet()
+                .stream()
+                .sorted(Entry.comparingByValue(Comparator.reverseOrder()))
+                .forEachOrdered(listOfEntries::add);
         return listOfEntries;
     }
 
@@ -121,6 +129,17 @@ public class Utility {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static String getLemma(String text) {
+        String lemmaOfText = " ";
+        Annotation document = pipeline.process(String.valueOf(text));
+        for (CoreMap sentence : document.get(CoreAnnotations.SentencesAnnotation.class)) {
+            for (CoreLabel word : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
+                lemmaOfText += word.get(CoreAnnotations.LemmaAnnotation.class) + " ";
+            }
+        }
+        return lemmaOfText;
     }
 
 }

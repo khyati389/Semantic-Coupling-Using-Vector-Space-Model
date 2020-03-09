@@ -41,7 +41,7 @@ public class SemanticCoupling {
         // Calculate the cosine similarities given the target Java file name.
         documentSimilarities = Utility.getDocumentSimilarities(targetFilename, javaClasses);
         // rank the Java files based on the similarity
-        rankedDocuments = Utility.rankDimilarDocuments(documentSimilarities);
+        rankedDocuments = Utility.rankSimilarDocuments(documentSimilarities);
         //print the top k Java files based on the similarity score.
         Utility.printTopKSimilarDocuments(rankedDocuments, maxPrintResults);
         // dump the content of dictionary to disk

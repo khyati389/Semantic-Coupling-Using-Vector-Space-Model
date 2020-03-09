@@ -1,8 +1,13 @@
+import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreSentence;
+import edu.stanford.nlp.util.CoreMap;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 import static javax.lang.model.SourceVersion.isIdentifier;
@@ -51,9 +56,15 @@ public class JavaClass {
      * read the content in a Java file into a String and store it to the variable *content*.
      * @param file . A file Object
      * @return content. A string storing the content of the Java file.
+     * TO DO
      */
     public String readDocument(File file) {
         String content = "";
+        try {
+            content = Files.readString(Paths.get(String.valueOf(file)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return content;
     }
 
@@ -70,8 +81,9 @@ public class JavaClass {
      * It contains two three steps:
      * 1. split the content into tokens, this is already done.
      * 2. do the Lemmatization on the tokens
-     * 3. deal with the CamelCase.
+     * 3. deal with the CamelCase. (done--)
      * @return tokens
+     * TO DO
      */
     private List<String> tokenizeAndStemDocument() {
 
@@ -81,7 +93,7 @@ public class JavaClass {
         Utility.pipeline.annotate(coreDocument);
         for (CoreSentence sentense: coreDocument.sentences()){
             for (CoreLabel token: sentense.tokens()){
-                String tokenLemma; //do the Lemmatization and get the lemma of the token.
+                String tokenLemma = Utility.getLemma(String.valueOf(token)); //do the Lemmatization and get the lemma of the token.
                 List<String> tokenSplits = splitIdentifiers(tokenLemma); // deal with the CamelCases.
                 tokens.addAll(tokenSplits);
             }
@@ -98,10 +110,12 @@ public class JavaClass {
      * 3. MAXNumber, return "MAX" and "Number".
      * 4. top1Results. return "top", "1" and "Results"
      * @param tokenLemma
-     * @return a list of tokens after spliting the camel case
+     * @return a list of tokens after spliting the camel
+     * TO DO
      */
     private List<String> splitIdentifiers(String tokenLemma){
         List<String> splitTokens = new ArrayList<>();
+        Collections.addAll(splitTokens, tokenLemma.split("(?<!(^|[A-Z]))(?=[A-Z])|(?<!^)(?=[A-Z][a-z])"));
         return splitTokens;
     }
 
@@ -129,9 +143,14 @@ public class JavaClass {
      *
      * @param terms a list of terms in the Java file.
      * @return tfs.
+     * TO DO
      */
     private Hashtable<String, Double> calculateTfs( List<String> terms) {
         Hashtable<String, Double> tfs = new Hashtable<>();
+        for (String i : terms) {
+            tfs.putIfAbsent(i, 0.0);
+            tfs.replace(i, tfs.get(i)+1);
+        }
         return tfs;
     }
 
@@ -141,9 +160,21 @@ public class JavaClass {
      * And it returns results as list of TF-IDF values for terms in the same order as dictionary.getIdfs()
      * @param dictionary
      * @return tfIdfs. list of TF-IDF values for terms
+     * TO DO
      */
     public List<Double>  calculateTfIdfs(Dictionary dictionary) {
         List<Double> tfIdfs = new ArrayList<>();
+        Hashtable<String, Double> tfs = this.getTfs();
+        Hashtable<String, Double> idfs = dictionary.getIdfs();
+        double numberOfTotalTerms = 0.0;
+        for (double i : tfs.values()) numberOfTotalTerms += i;
+
+        for (Map.Entry<String, Double> entry : tfs.entrySet()) {
+            String term = entry.getKey();
+            double tfVal = entry.getValue() / numberOfTotalTerms;
+            double idfVal = idfs.containsKey(term) ? idfs.get(term) : 0.0;
+            tfIdfs.add(tfVal * idfVal);
+        }
         return tfIdfs;
     }
 
@@ -151,9 +182,12 @@ public class JavaClass {
      * Do the calculation of the cosine similarity between this document and the given document.
      * @param query
      * @return the cosine similarity between the TFIDF representation of this Java file and that of the given Java file.
+     * TO DO
      */
     public double calculateCosineSimilarity(JavaClass query) {
         double cosineSimilarity = 0;
+        //formula = A * B / |A| * |B|
+
         return cosineSimilarity;
     }
 }

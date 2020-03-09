@@ -35,9 +35,22 @@ public class Dictionary {
      * "hello":{"a.java", "c.java"}}
      * @param javaClasses
      * @return invertedIndex
+     * TO DO
      */
     public Hashtable<String, Set<String>> buildInvertedIndex(List<JavaClass> javaClasses){
         Hashtable<String, Set<String>> invertedIndex = new Hashtable<>();
+        for (JavaClass javaClass : javaClasses) {
+            String fileName = javaClass.getFileName();
+            for(String term : javaClass.getTerms()){
+                if(!invertedIndex.containsKey(term)) {
+                    Set<String> set = new HashSet<>();
+                    set.add(fileName);
+                    invertedIndex.putIfAbsent(term,set);
+                }else {
+                    invertedIndex.get(term).add(fileName);
+                }
+            }
+        }
         return invertedIndex;
     }
 
@@ -46,9 +59,14 @@ public class Dictionary {
      * the return is a hashtable, value is the token, value is the token's idf.
      * @param numberOfDocs
      * @return idfs
+     * TO DO
      */
     public Hashtable<String, Double> calculateIdfs(int numberOfDocs) {
         Hashtable<String, Double> idfs = new Hashtable<>();
+        for(Map.Entry entry : this.getInvertedIndex().entrySet()){
+            int m = Collections.singleton(entry.getValue()).size();
+            idfs.put(String.valueOf(entry.getKey()), Math.log(numberOfDocs/m));
+        }
         return idfs;
     }
 

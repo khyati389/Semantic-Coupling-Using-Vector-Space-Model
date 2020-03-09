@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7189c6d5-0ea4-466a-a5b8-8e84eb650b75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/_name" beforeDir="false" />
+    <list default="true" id="97130ba9-b1a6-4603-937e-efa63a96ecbb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/UtilityTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignment.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VSM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VSM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JavaClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JavaClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SemanticCoupling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SemanticCoupling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1YobZB4CB4xYOs2qYQWdJeqQrPL" />
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YrrDKIf3DeTiDdREiMjWGFTQki" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="flattenPackages" value="true" />
@@ -31,25 +51,49 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last.edited.regexp" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager" selected="JUnit.UtilityTest.testGetLemma">
+    <configuration name="All in test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="main" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilityTest.testGetLemma" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UtilityTest" />
+      <option name="METHOD_NAME" value="testGetLemma" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UtilityTest.testGetLemma" />
+        <item itemvalue="JUnit.All in test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7189c6d5-0ea4-466a-a5b8-8e84eb650b75" name="Default Changelist" comment="" />
-      <created>1583611946506</created>
+      <changelist id="97130ba9-b1a6-4603-937e-efa63a96ecbb" name="Default Changelist" comment="" />
+      <created>1583711433395</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583611946506</updated>
-      <workItem from="1583611947950" duration="181000" />
-      <workItem from="1583612163751" duration="58000" />
-      <workItem from="1583616979905" duration="609000" />
+      <updated>1583711433395</updated>
+      <workItem from="1583711436454" duration="131000" />
+      <workItem from="1583711618764" duration="3984000" />
+      <workItem from="1583718158472" duration="4403000" />
     </task>
     <servers />
   </component>
@@ -57,33 +101,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="74" key="#Notifications" timestamp="1583612182948">
+    <state x="371" y="93" key="#UtilityTest" timestamp="1583715118610">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="74" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1583612182948" />
-    <state x="361" y="74" key="#Project_Structure" timestamp="1583617703636">
+    <state x="371" y="93" key="#UtilityTest/0.0.1536.824@0.0.1536.824" timestamp="1583715118610" />
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1583711535019">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="74" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1583617703636" />
-    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583612188021">
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583711535019" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1583715261181">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1583612188021" />
-    <state x="509" y="288" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583612106972">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583715261181" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1583715261181">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="509" y="288" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1583612106972" />
-    <state x="548" y="170" key="FileChooserDialogImpl" timestamp="1583617684398">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583715261181" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1583715261180">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1583617684398" />
-    <state x="279" y="58" key="SettingsEditor" timestamp="1583617687884">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583715261180" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1583715261181">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583617687884" />
-    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1583617136717">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583715261181" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1583711775606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583617136717" />
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583711775606" />
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1583718159650">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583718159650" />
   </component>
 </project>
