@@ -1,14 +1,13 @@
-import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreSentence;
-import edu.stanford.nlp.util.CoreMap;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
 
 import static javax.lang.model.SourceVersion.isIdentifier;
 
@@ -115,7 +114,7 @@ public class JavaClass {
      */
     private List<String> splitIdentifiers(String tokenLemma){
         List<String> splitTokens = new ArrayList<>();
-        Collections.addAll(splitTokens, tokenLemma.split("(?<!(^|[A-Z]))(?=[A-Z])|(?<!^)(?=[A-Z][a-z])"));
+        Collections.addAll(splitTokens, StringUtils.splitByCharacterTypeCamelCase(tokenLemma));
         return splitTokens;
     }
 
