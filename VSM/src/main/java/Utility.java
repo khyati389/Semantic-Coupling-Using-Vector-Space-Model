@@ -1,8 +1,6 @@
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
-import edu.stanford.nlp.util.CoreMap;
 
 import java.io.*;
 import java.util.*;
@@ -131,14 +129,8 @@ public class Utility {
         }
     }
 
-    public static String getLemma(String text) {
-        String lemmaOfText = " ";
-        Annotation document = pipeline.process(String.valueOf(text));
-        for (CoreMap sentence : document.get(CoreAnnotations.SentencesAnnotation.class)) {
-            for (CoreLabel word : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
-                lemmaOfText += word.get(CoreAnnotations.LemmaAnnotation.class) + " ";
-            }
-        }
+    public static String getLemma(CoreLabel text) {
+        String lemmaOfText = text.get(CoreAnnotations.LemmaAnnotation.class);
         return lemmaOfText;
     }
 

@@ -19,9 +19,9 @@ public class SemanticCoupling {
 
     public static void main(String[] args) {
         // accept the user input parameters
-        documentsPath = args[0];
-        targetFilename = args[1];
-        maxPrintResults = Integer.parseInt(args[2]);
+        documentsPath = "C:\\Users\\Manan\\OneDrive\\Desktop\\classes-test-1";
+        targetFilename = "CanReadFileFilter.java";
+        maxPrintResults = 1;
 
         // initialize the StanfordCoreNLP
         Utility.initializeStanfordCoreNLP();

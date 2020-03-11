@@ -92,8 +92,8 @@ public class JavaClass {
         Utility.pipeline.annotate(coreDocument);
         for (CoreSentence sentense: coreDocument.sentences()){
             for (CoreLabel token: sentense.tokens()){
-                String tokenLemma = Utility.getLemma(String.valueOf(token)); //do the Lemmatization and get the lemma of the token.
-                List<String> tokenSplits = splitIdentifiers(tokenLemma); // deal with the CamelCases.
+                String tokenLemma = Utility.getLemma(token); //do the Lemmatization and get the lemma of the token.
+                List<String> tokenSplits = splitIdentifiers(String.valueOf(tokenLemma)); // deal with the CamelCases.
                 tokens.addAll(tokenSplits);
             }
         }
@@ -147,7 +147,7 @@ public class JavaClass {
     private Hashtable<String, Double> calculateTfs( List<String> terms) {
         Hashtable<String, Double> tfs = new Hashtable<>();
         for (String i : terms) {
-            tfs.putIfAbsent(i, 0.0);
+            tfs.putIfAbsent(i, 0d);
             tfs.replace(i, tfs.get(i)+1);
         }
         return tfs;
@@ -165,14 +165,14 @@ public class JavaClass {
         List<Double> tfIdfs = new ArrayList<>();
         Hashtable<String, Double> tfs = this.getTfs();
         Hashtable<String, Double> idfs = dictionary.getIdfs();
-        double numberOfTotalTerms = 0.0;
-        for (double i : tfs.values()) numberOfTotalTerms += i;
-
-        for (Map.Entry<String, Double> entry : tfs.entrySet()) {
+        for (Map.Entry<String, Double> entry : idfs.entrySet()) {
             String term = entry.getKey();
-            double tfVal = entry.getValue() / numberOfTotalTerms;
-            double idfVal = idfs.containsKey(term) ? idfs.get(term) : 0.0;
-            tfIdfs.add(tfVal * idfVal);
+            if(tfs.containsKey(term)){
+                double idfVal = idfs.get(term);
+                tfIdfs.add(tfs.get(term) * idfVal);
+            }else {
+                tfIdfs.add(0d);
+            }
         }
         return tfIdfs;
     }
@@ -185,8 +185,18 @@ public class JavaClass {
      */
     public double calculateCosineSimilarity(JavaClass query) {
         double cosineSimilarity = 0;
-        //formula = A * B / |A| * |B|
+        double sigmaAB = 0;
+        double squareA = 0;
+        double squareB = 0;
+        List<Double> TfIdfs_A = this.getTfIdfs();
+        List<Double> TfIdfs_B = query.getTfIdfs();
 
+        for(int i = 0; i < TfIdfs_A.size(); i++) {
+            sigmaAB += TfIdfs_A.get(i) * TfIdfs_B.get(i);
+            squareA += Math.pow(TfIdfs_A.get(i),2);
+            squareB += Math.pow(TfIdfs_B.get(i),2);
+        }
+        cosineSimilarity = sigmaAB / (Math.sqrt(squareA) * Math.sqrt(squareB));
         return cosineSimilarity;
     }
 }
